@@ -27,9 +27,7 @@
         int: 1,
         string: "string",
         // func: () => { console.log("func") }, Function 不能被複製, 因為 throw error, 需要刪除
-        childObj: {
-            message: 'hello world'
-        },
+        childObj: { message: 'hello world' },
         array: [1, 2, 3, 4, 5],
         bool: true,
         nil: null,
@@ -44,6 +42,7 @@
         car: new car("Ford"),
         undefined: undefined,
         // dom: helloDiv, dom 不能被複製, 因為 throw error, 需要刪除
+        error: new Error('This is an error message'),
     }
 
     const clonedObj = structuredClone(obj);
@@ -54,9 +53,7 @@
         int: 1,
         string: "string",
         func: () => { console.log("func") },
-        childObj: {
-            message: 'hello world'
-        },
+        childObj: { message: 'hello world' },
         array: [1, 2, 3, 4, 5],
         bool: true,
         nil: null,
@@ -71,6 +68,7 @@
         car: new car("Ford"),
         undefined: undefined,
         dom: helloDiv,
+        error: new Error('This is an error message'),
     }
 
     const jsonClonedObj = JSON.parse(JSON.stringify(jsonObj));
