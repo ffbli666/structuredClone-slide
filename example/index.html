@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="hello">Hello world</div>
+</body>
+
+</html>
+<script>
+    const helloDiv = document.getElementById('hello');
+    class car {
+        constructor(brand) {
+            this.carname = brand;
+        }
+        present() {
+            return 'I have a ' + this.carname;
+        }
+    }
+
+    const obj = {
+        int: 1,
+        string: "string",
+        // func: () => { console.log("func") }, Function 不能被複製, 因為 throw error, 需要刪除
+        childObj: {
+            message: 'hello world'
+        },
+        array: [1, 2, 3, 4, 5],
+        bool: true,
+        nil: null,
+        map: new Map([['key1', 'value1'], ['key2', 'value2']]),
+        set: new Set([1, 2, 3, 4, 5]),
+        date: new Date(),
+        regex: /ab+c/i,
+        // symbol: Symbol('sym'), Symbol 不能被複製, 因為 throw error, 需要刪除
+        bigInt: BigInt(12345678901234567890),
+        ArrayBuffer: new ArrayBuffer(8),
+        typedArray: new Uint8Array([1, 2, 3, 4, 5]),
+        car: new car("Ford"),
+        undefined: undefined,
+        // dom: helloDiv, dom 不能被複製, 因為 throw error, 需要刪除
+    }
+
+    const clonedObj = structuredClone(obj);
+    console.log(clonedObj);
+
+
+    const jsonObj = {
+        int: 1,
+        string: "string",
+        func: () => { console.log("func") },
+        childObj: {
+            message: 'hello world'
+        },
+        array: [1, 2, 3, 4, 5],
+        bool: true,
+        nil: null,
+        map: new Map([['key1', 'value1'], ['key2', 'value2']]),
+        set: new Set([1, 2, 3, 4, 5]),
+        date: new Date(),
+        regex: /ab+c/i,
+        symbol: Symbol('sym'),
+        // bigInt: BigInt(12345678901234567890), bigInt 不能被複製, 因為 throw error, 需要刪除
+        ArrayBuffer: new ArrayBuffer(8),
+        typedArray: new Uint8Array([1, 2, 3, 4, 5]),
+        car: new car("Ford"),
+        undefined: undefined,
+        dom: helloDiv,
+    }
+
+    const jsonClonedObj = JSON.parse(JSON.stringify(jsonObj));
+    console.log(jsonClonedObj);
+</script>
